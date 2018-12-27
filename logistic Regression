@@ -1,0 +1,51 @@
+## Logistic regrection ----> 0 or 1
+Logisstic regression will apply when the depended value is cataegorical( 0 or 1, yes or no)
+based on propblity in y value have to fix the threshold ie., 0 or 1 
+regression is establish relationship between 2 values.
+
+using mle method we can create model: 
+In summary coefficent is important.
+
+constant number is 2.7183.
+
+in R predict script...>>> 
+predict = (data, x1,x2)
+
+when the problity is >0.5 its true then it can be 1, if <0.5 its false then it can be 0.
+
+import data#
+data <- read.csv(file=".csv",head=true, sep=",")
+library(caTool)
+$split into training and test dataset
+split <- sample.split(data,splitRation = 0.8)
+split
+testing <- subset(data, split == "false")
+#creating model:
+model <-glm(type~.,training, family = "binomal")
+summary(model)
+#*** 99.7% confident
+#**99% confident
+#* 95% confident
+# .90% confident
+# resideual deviance should decrease compare to null deviance, aic should less.
+
+#optimising model by removing non signifence column
+model <-glm(type~.,- col name,training, family = "binomal")
+
+#Predict
+res <- predict(model,testing, type="response") #---- reponse is predicting value
+
+#confusion matrix
+table(actualValue=testing$colname, predictedValue=res>0.5)
+
+#finding a threshold
+library(ROCR)
+res <- predict(model,training, type="response")
+ROCRpred = prediction(res.training$colname)
+ROCRpred = performance(ROCRPred, "tpr", "fpr")
+plot(ROCRPref,colorize=TRUE,print.cutoffs.at=seq(0.1.by=0.1)
+
+#---in graph high distance distance in x axis then we cna change the threshold.
+# finding the accurace value by changing threashold
+table(actualValue=testing$colname, predictedValue=res>0.3)
+res <- predict(model,testing, type="response")
