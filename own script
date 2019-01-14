@@ -1,0 +1,2 @@
+#write function to export data in csv format
+write.table(df, file="pincodeupdated.csv",sep="")
