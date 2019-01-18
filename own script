@@ -1,4 +1,4 @@
 #Reading text file
-df<-read.delim(file = "in.txt", header = TRUE, sep = "")
+df<-read.delim(file = "in.txt", header = false, sep = "")
 #write function to export data in csv format
 write.table(df, file="pincodeupdated.csv",sep="")
