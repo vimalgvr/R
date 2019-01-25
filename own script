@@ -1,4 +1,6 @@
 #Reading text file
 df<-read.delim(file = "in.txt", header = false, sep = "")
+#Reading a folder 
+data<- Corpus(DirSource('url')) # corpus is a text mining package
 #write function to export data in csv format
 write.table(df, file="pincodeupdated.csv",sep="")
